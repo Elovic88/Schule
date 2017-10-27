@@ -1,0 +1,7 @@
+#class-select, #subject-select {
+    margin: 10px;
+    padding: 5px;
+    font-size: 26px;
+    outline: none;
+    border: 2px solid #777b8b;
+}

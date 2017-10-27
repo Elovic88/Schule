@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>5BHW - Docs</title>
+    <script src="js/doc.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="init()">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" onclick="init()" href="#">Startseite</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#" data-toggle="modal" data-target="#myModal" onclick="loadDropdownData('Klasse','getclasses','modal-class')">Dokument hinzufügen</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<center>
+    <div id="dropdowns">
+        <select id="class-select" onchange="changeClass(this, 'subject-select')">
+            <option disabled selected>Klasse</option>
+        </select>
+        <select id="subject-select" onchange="loadDocuments()">
+            <option disabled selected>Fach</option>
+        </select>
+    </div>
+</center>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Dokument Hinzufügen</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <span class="input-group-addon">Dokumentname</span>
+                    <input id="name" type="text" class="form-control" name="name">
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon">Dokument-URL</span>
+                    <input id="url" type="text" class="form-control" name="url">
+                </div>
+                <br />
+                <div id="modal-dropdowns">
+                    <select id="modal-class" onchange="changeClass(this, 'modal-subject')">
+                        <option disabled selected>Klasse</option>
+                    </select>
+                    <select id="modal-subject" onchange="loadDocuments()">
+                        <option disabled selected>Fach</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Hinzufügen</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="documents"></div>
+</body>
+</html>
